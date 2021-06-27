@@ -1,0 +1,141 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        applicationId "com.ae.acronymapp"
+        minSdkVersion 22
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    kapt {
+        correctErrorTypes true
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            buildConfigField "String", "BASE_URL", BASE_URL
+        }
+        release {
+            buildConfigField "String", "BASE_URL", BASE_URL
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    // Kotlin lib
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Material
+    implementation "com.google.android.material:material:$materialVersion"
+
+   // Activity KTX
+    implementation "androidx.activity:activity-ktx:$activityKtxVersion"
+
+    // Android X
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.appcompat:appcompat:$appCompactVersion"
+    implementation "androidx.core:core-ktx:$coreKtxversion"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common:$archLifecycleVersion"
+
+    // retrofit
+    implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "com.squareup.okio:okio:$okioversion"
+
+    // Room
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+    // RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+
+    // Dagger
+    implementation "com.google.dagger:hilt-android:$daggerVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$daggerVersion"
+
+    // Timber logging
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+
+    // Gson
+    implementation "com.google.code.gson:gson:$gsonLibraryVersion"
+
+    // Testing //
+
+    // Junit
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$junitTestImplVersion"
+
+    // Mockito
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "androidx.arch.core:core-testing:$archCoreTesting"
+    testImplementation "org.mockito:mockito-inline:$mockitoInlineVersion"
+
+    // Room
+    androidTestImplementation "androidx.room:room-testing:$roomVersion"
+
+    testImplementation "androidx.test.ext:junit:$testExtVersion"
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+
+    // Espresso
+    androidTestImplementation "androidx.test.espresso:espresso-core:$expressoCoreVersion"
+
+    androidTestImplementation "androidx.test:runner:$testRunnerVersion"
+    androidTestImplementation "androidx.test:rules:$testRunnerVersion"
+
+
+    //Coroutines
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesTestVersion"
+}
+
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
+    }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ProgressBar
+        android:id="@+id/empty_state_loading"
+        android:layout_width="@dimen/xxxl_size_3x"
+        android:layout_height="@dimen/xxxl_size_3x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"
+        android:indeterminateTint="@color/design_default_color_primary_dark"
+        />
+
+    <TextView
+        android:id="@+id/empty_state_task_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/xxxl_size_2x"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_medium_size_2x"
+        android:textStyle="normal"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/empty_state_loading"
+        tools:text="Parece que no hay noificaciones aún" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

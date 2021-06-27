@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Components size  -->
+    <dimen name="small_size_2x">4dp</dimen>
+    <dimen name="small_size">8dp</dimen>
+    <dimen name="medium_size">10dp</dimen>
+    <dimen name="big_size_1x">12dp</dimen>
+    <dimen name="big_size_2x">14dp</dimen>
+    <dimen name="xl_size_1x">16dp</dimen>
+    <dimen name="xl_size_2x">18dp</dimen>
+    <dimen name="xxl_size_1x">20dp</dimen>
+    <dimen name="xxl_size_2x">22dp</dimen>
+    <dimen name="xxxl_size_1x">24dp</dimen>
+    <dimen name="xxxl_size_2x">30dp</dimen>
+    <dimen name="xxxl_size_3x">50dp</dimen>
+    <dimen name="xxxl_size_4x">80dp</dimen>
+
+    <dimen name="text_overview_container_size">300dp</dimen>
+
+
+    <dimen name="item_image_height">200dp</dimen>
+    <dimen name="item_image_width">160dp</dimen>
+
+    <!--  Text size  -->
+    <dimen name="text_small_size">12sp</dimen>
+    <dimen name="text_medium_size">14sp</dimen>
+    <dimen name="text_medium_size_2x">16sp</dimen>
+    <dimen name="text_big_size">18sp</dimen>
+    <dimen name="text_xl_size">24sp</dimen>
+
+</resources>
