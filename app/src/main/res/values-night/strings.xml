@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Acronym App</string>
     <string name="representative_form_text">Representative form</string>
     <string name="since_text">First time appeared</string>
     <string name="empty_results_text">Not found results</string>

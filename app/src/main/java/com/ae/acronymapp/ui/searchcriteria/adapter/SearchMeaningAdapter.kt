@@ -1,5 +1,6 @@
 package com.ae.acronymapp.ui.searchcriteria.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,15 +50,17 @@ class SearchMeaningAdapter @Inject constructor(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(longFormList[position])
+        holder.bind(longFormList[position], holder.itemView.context)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = DetailItemBinding.bind(itemView)
 
-        fun bind(item: LongFormArray) {
-            binding.detailItemTitle.text = item.longForm
-            binding.detailItemOverview.text = item.longForm
+        fun bind(item: LongFormArray, context: Context) {
+            val representativeForm = context.getString(R.string.representative_form_text)
+            val frequency = context.getString(R.string.since_text)
+            "$representativeForm: ${item.longForm}".also { binding.detailItemTitle.text = it }
+            "$frequency: ${item.since}".also { binding.detailItemOverview.text = it }
         }
     }
 
