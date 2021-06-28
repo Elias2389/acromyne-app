@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ae.acronymapp.R
 import com.ae.acronymapp.common.base.AbstractActivity
 import com.ae.acronymapp.common.resource.Status
 import com.ae.acronymapp.databinding.ActivityMainBinding
@@ -48,7 +49,7 @@ class MainActivity : AbstractActivity() {
                     Status.SUCCESS -> {
                         response.data?.let { result ->
                             if (result.isEmpty()) {
-                                notFoundData()
+                                notFoundLastSearches()
                             } else {
                                 val meanings = result[0].longFormArray
                                 showData(meanings)
@@ -134,6 +135,13 @@ class MainActivity : AbstractActivity() {
     }
 
     private fun notFoundData() {
+        binding.emptyStateView.setMessage(getString(R.string.empty_results_text))
+        showEmptyState()
+        searchMeaningAdapter.clearAll()
+    }
+
+    private fun notFoundLastSearches() {
+        binding.emptyStateView.setMessage(getString(R.string.empty_latest_results_text))
         showEmptyState()
         searchMeaningAdapter.clearAll()
     }
